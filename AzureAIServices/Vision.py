@@ -14,11 +14,6 @@ def identify_landmark(image_url):
         "Ocp-Apim-Subscription-Key": KEY,
     }
 
-    parameters = {
-        "visualFeatures": "Categories",
-        "details": "Landmarks"
-    }
-
     body = {"url": image_url}
 
     # May need to check the image to determine content type

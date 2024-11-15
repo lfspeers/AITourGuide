@@ -6,7 +6,7 @@ import requests
 
 
 
-def identify_landmark(image_url):
+def identify_landmark(image_url: str) -> str:
     KEY = os.environ["AI_MULTISERVICE_KEY"]
     URL = f"https://eastus.api.cognitive.microsoft.com/vision/v3.2/models/Landmarks/analyze"
 

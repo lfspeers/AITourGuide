@@ -5,7 +5,7 @@ import os
 import datetime
 
 
-def text_to_speech(text: str, voice: str) -> None:
+def text_to_speech(text: str, voice: str) -> str:
     key = os.environ['AI_MULTISERVICE_KEY']
     region = os.environ['AI_MULTISERVICE_REGION']
 

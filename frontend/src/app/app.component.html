@@ -1,0 +1,77 @@
+<main class="main">
+  <div class="content">
+
+    <div class="left-side">
+      <h1>Welcome to {{ title }}</h1>
+      <p>Provide a link to an image of a landmark to begin your tour</p>
+      <input type="text" size="45%" placeholder="https://url" [formControl]="url" [ngClass]="invalid ? 'invalid' : 'valid'" (click)="resetValid()">
+      <div>
+        <button type="button" (click)="submit()">Submit</button>
+      </div>
+      <hr>
+      <div class="audio">
+        @if (ready) {
+          @if (audio) {
+            <ngx-audio-wave audioSrc="{{this.audio}}" [height]="100" [gap]="7"></ngx-audio-wave>
+            <img src="{{imgUrl}}">
+          } @else {
+            <p>Submit a link to generate a tour</p>
+          }
+
+        }
+        @else {
+          <p>Generating Tour...</p>
+          <mat-progress-bar mode="indeterminate" value="50"></mat-progress-bar>
+          <img src="{{imgUrl}}">
+        }
+      </div>
+    </div>
+
+    <div class="divider" role="separator" aria-label="Divider"></div>
+
+    <div class="right-side">
+      <h1>Meet the Guides</h1>
+      <p>Select one of our guides to tailor your experience!</p>
+      
+      <div class="card">
+        <label>
+          <input type="radio" name="guide" class="card-input-element"  (click)="select(0)" checked />
+            <div class="panel panel-default card-input">
+              <div class="panel-heading">Brian</div>
+              <div class="panel-body">
+                A friendly guide with a breadth of knowledge and professional tone.
+              </div>
+            </div>
+        </label>
+      </div>
+
+      <div class="card">
+        <label>
+          <input type="radio" name="guide" class="card-input-element"  (click)="select(1)" />
+            <div class="panel panel-default card-input">
+              <div class="panel-heading">Ava</div>
+              <div class="panel-body">
+                A passionate historian with a love for culture and knack for storytelling.
+              </div>
+            </div>
+        </label>
+      </div>
+
+      <div class="card">
+        <label>
+          <input type="radio" name="guide" class="card-input-element" (click)="select(2)"/>
+            <div class="panel panel-default card-input">
+              <div class="panel-heading">Guy</div>
+              <div class="panel-body">
+                A knowledgeable guide, though his excitement may not match his skill.
+              </div>
+            </div>
+        </label>
+      </div>
+      
+    </div>
+  </div>
+</main>
+
+
+<router-outlet />
